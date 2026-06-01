@@ -165,8 +165,35 @@ npx netlify deploy --prod
 Here is a conceptual walkthrough of the application's premium portal pages:
 
 | Customer Viewport | Vendor Dashboard | Admin Analytics |
-| :---: | :---: | :---: |
-| ![Customer Hub UI](https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&q=80&w=200) | ![Vendor Panel UI](https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&q=80&w=200) | ![Admin Dashboard UI](https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&q=80&w=200) |
+### Login Screen
+![Login](screenshots/01-Login.png.png)
+
+### Mobile Login
+![Mobile Login](screenshots/02-Mobile-Login.png.png)
+
+### Customer Home
+![Customer Home](screenshots/03-Customer-Home.png.png)
+
+### Shopping Cart
+![Shopping Cart](screenshots/04-Shopping-Cart.png.png)
+
+### Checkout Page
+![Checkout](screenshots/05-Checkout-Page.png.png)
+
+### Payment Gateway
+![Payment Gateway](screenshots/06-Payment-Gateway.png.png)
+
+### Admin Dashboard
+![Admin Dashboard](screenshots/07-Admin-Dashboard.png.png)
+
+### Vendor Dashboard
+![Vendor Dashboard](screenshots/08-Vendor-Dashboard.png.png)
+
+### Vendor Inventory
+![Vendor Inventory](screenshots/09-Vendor-Inventory.png.png)
+
+### Vendor Order Tracking
+![Vendor Orders](screenshots/10-Vendor-Order-Tracking.png.png)
 
 ---
 
