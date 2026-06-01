@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper: Checks if the user is signed in
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    // Helper: Checks if the document belongs to the signed-in user
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // 1. Products Collection Rules
+    match /products/{productId} {
+      allow read: if true; // Anyone can view products
+      allow write: if isAuthenticated(); // Restrict catalog edits to logged-in sessions (admin/shopper)
+    }
+
+    // 2. Categories Collection Rules
+    match /categories/{categoryId} {
+      allow read: if true; // Anyone can view categories
+      allow write: if isAuthenticated(); // Restrict edits
+    }
+
+    // 3. Orders Collection Rules
+    match /orders/{orderId} {
+      allow read: if true; // Anyone can read orders
+      allow create: if true; // Anyone can place an order
+      allow update, delete: if isAuthenticated(); // Restrict order updates to authenticated sessions
+    }
+
+    // 4. Users (Customers) Collection Rules
+    match /users/{userId} {
+      allow read, write: if true; // Allow user profiles synchronization
+    }
+
+    // 5. Wishlist Collection Rules
+    match /wishlist/{userId} {
+      allow read, write: if true; // Allow individual shopper wishlist syncs
+    }
+
+    // 6. Cart Collection Rules
+    match /cart/{userId} {
+      allow read, write: if true; // Allow individual shopper cart syncs
+    }
+
+    // 7. Reviews Collection Rules
+    match /reviews/{reviewId} {
+      allow read: if true; // Public reviews
+      allow write: if true; // Order feedback writes
+    }
+  }
+}
